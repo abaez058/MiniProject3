@@ -1,79 +1,86 @@
-MiniProject 3 – Matrix Decomposition Summary
+# MiniProject 3 – Matrix Decomposition Summary
 
-This project performs several matrix decomposition techniques—LU, SVD, and QR—on a given 3×3 matrix, and also computes singular values for a dataset loaded from a JSON file.
+This project performs several matrix decomposition techniques—LU, SVD, and QR—on a given 3×3 matrix, and computes singular values for a dataset loaded from a JSON file.
 
-Files Used
+---
 
-MiniProject3.py — main script
+## Files Used
+- **MiniProject3.py** — Main script containing all computations  
+- **SVD_dataset.json** — Dataset used for Question 3
 
-SVD_dataset.json — dataset used for Question 3
+---
 
-Question 2 – Operations on a 3×3 Matrix
-Matrix Used
+## Question 2 – Operations on a 3×3 Matrix
 
-A fixed 3×3 matrix A2:
-
+### Matrix Used
+```text
 [[10, -7,  0],
  [-3,  2,  6],
  [ 5, -1,  5]]
+```
 
-2.1 — LU Decomposition
+---
+
+## 2.1 — LU Decomposition
 
 The script computes:
-
-P (Permutation matrix)
-
-L (Lower triangular with 1s on the diagonal)
-
-U (Upper triangular)
-
-It verifies the result using:
-
-P @ A2 ≈ L @ U
-
-2.2 — Singular Value Decomposition (SVD)
-
-Uses NumPy’s np.linalg.svd() to compute:
-
-U — left singular vectors
-
-Σ — singular values (as a diagonal matrix)
-
-Vᵀ — right singular vectors
+- **P** — Permutation matrix  
+- **L** — Lower triangular matrix with 1s on the diagonal  
+- **U** — Upper triangular matrix  
 
 Verification:
+```text
+P @ A2 ≈ L @ U
+```
 
+---
+
+## 2.2 — Singular Value Decomposition (SVD)
+
+Using NumPy’s `np.linalg.svd()`, the script computes:
+- **U** — Left singular vectors  
+- **Σ** — Singular values (diagonal matrix)  
+- **Vᵀ** — Right singular vectors  
+
+Verification:
+```text
 A2 ≈ U @ Σ @ Vᵀ
+```
 
-2.3 — QR Decomposition
+---
 
-Computes:
+## 2.3 — QR Decomposition
 
-Q — orthogonal matrix
+The script calculates:
+- **Q** — Orthogonal matrix  
+- **R** — Upper triangular matrix  
 
-R — upper triangular matrix
-
-Checks:
-
+Verification:
+```text
 A2 ≈ Q @ R
+```
 
-
-Also verifies orthogonality:
-
+Orthogonality check:
+```text
 Qᵀ @ Q ≈ I
+```
 
-Question 3 – SVD on Provided Dataset
+---
 
-Loads a matrix from SVD_dataset.json, then computes singular values using NumPy’s SVD.
+## Question 3 – SVD on Provided Dataset
 
-Summary
+The script loads a matrix from `SVD_dataset.json` and computes its singular values using NumPy’s SVD function.
 
-At the end of the script, the program prints:
+---
 
-LU matrices (P, L, U)
+## Summary of Outputs
 
-Singular values
+The program prints:
+- LU decomposition matrices (P, L, U)  
+- Singular values for the 3×3 matrix  
+- QR decomposition matrices (Q, R)  
+- Singular values from the JSON dataset  
 
-QR matrices (Q, R)
+---
 
-SVD results for the JSON matrix
+This project demonstrates the use of NumPy and SciPy for matrix factorizations and numerical verification.
